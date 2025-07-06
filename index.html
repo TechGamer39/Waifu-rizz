@@ -3,86 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hey Cutie</title>
+  <title>Waifu Scroll Rizz</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Pacifico', cursive;
       background: linear-gradient(to bottom, #d1b3ff, #ffccf9);
+      font-family: 'Pacifico', cursive;
       overflow-x: hidden;
     }
 
     .section {
       height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 1.2s ease;
       text-align: center;
-      color: #a200ff;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .section.left {
+      transform: translateX(-100px);
     }
 
     .waifu-img {
       max-width: 300px;
-      margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
       filter: drop-shadow(0 0 20px #ff66cc);
     }
 
     .flirt-text {
       font-size: 2.2rem;
       color: #ff66cc;
-      text-shadow: 0 0 5px white;
+      margin-top: 15px;
+      opacity: 0;
+      transition: opacity 1s ease 0.4s;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .heart {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      background: url('https://emoji.gg/assets/emoji/3956-pink-heart.gif') no-repeat center/contain;
-      animation: floatHeart 6s ease-in infinite;
-      z-index: 0;
-    }
-
-    @keyframes floatHeart {
-      0% { transform: translateY(0) rotate(0); opacity: 1; }
-      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    .section.visible .flirt-text {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <div class="section">
-    <img src="https://i.imgur.com/n9UjXbO.png" class="waifu-img" alt="Hu Tao" />
-    <div class="flirt-text">Hey cutie</div>
+  <div class="section right">
+    <img src="wuwa.png" class="waifu-img" alt="WuWa Girl" />
+    <div class="flirt-text">Hey, don't look away~</div>
   </div>
 
-  <div class="section">
-    <img src="https://i.imgur.com/T1X7E1B.png" class="waifu-img" alt="Kirara" />
-    <div class="flirt-text">You dropped this</div>
+  <div class="section left">
+    <img src="hu_tao.png" class="waifu-img" alt="Hu Tao" />
+    <div class="flirt-text">I see you watching</div>
   </div>
 
-  <div class="section">
-    <img src="https://i.imgur.com/G9kBpn4.png" class="waifu-img" alt="Nahida" />
-    <div class="flirt-text">You're my 5-star banner</div>
+  <div class="section right">
+    <img src="kirara.png" class="waifu-img" alt="Kirara" />
+    <div class="flirt-text">You're kinda cute ngl</div>
   </div>
 
   <script>
-    // Floating hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 500);
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
