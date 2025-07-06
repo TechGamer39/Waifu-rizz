@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey Cutie 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(to bottom, #ffc6ec, #ffe9f7);
+      overflow-x: hidden;
+    }
+    .section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: #ff5ea7;
+    }
+    .waifu-img {
+      max-width: 280px;
+      margin-bottom: 1rem;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 15px hotpink);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .flirt-text {
+      font-size: 2rem;
+      text-shadow: 0 0 5px white;
+    }
+    .heart {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: url('https://emoji.gg/assets/emoji/3956-pink-heart.gif') no-repeat center/contain;
+      animation: floatHeart 6s ease-in infinite;
+    }
+    @keyframes floatHeart {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="section" style="z-index:1;">
+    <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/70/Character_Hu_Tao_Portrait.png" class="waifu-img" alt="Hu Tao">
+    <div class="flirt-text">Hey cutie 😚</div>
+  </div>
+
+  <div class="section" style="z-index:1;">
+    <img src="https://static.wikia.nocookie.net/gensin-impact/images/4/4d/Character_Kirara_Portrait.png" class="waifu-img" alt="Kirara">
+    <div class="flirt-text">You dropped this 💖</div>
+  </div>
+
+  <div class="section" style="z-index:1;">
+    <img src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Character_Nahida_Portrait.png" class="waifu-img" alt="Nahida">
+    <div class="flirt-text">Your smile buffs my heart~ 💘</div>
+  </div>
+
+  <script>
+    // floating hearts generator
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.bottom = '0px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 600);
+  </script>
+</body>
+</html>
