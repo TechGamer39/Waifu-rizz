@@ -1,18 +1,17 @@
-// Fade in on scroll
 document.addEventListener("DOMContentLoaded", () => {
-  const waifu = document.querySelector('.waifu-img');
-  const text = document.querySelector('.waifu-text');
+  const sections = document.querySelectorAll('.waifu-section');
 
-  const revealOnScroll = () => {
+  const reveal = () => {
     const scrollY = window.scrollY + window.innerHeight;
-    const waifuOffset = waifu.offsetTop;
 
-    if (scrollY > waifuOffset + 100) {
-      waifu.classList.add('visible');
-      text.classList.add('visible');
-    }
+    sections.forEach(section => {
+      const offset = section.offsetTop;
+      if (scrollY > offset - 100) {
+        section.classList.add('visible');
+      }
+    });
   };
 
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
+  window.addEventListener('scroll', reveal);
+  reveal();
 });
