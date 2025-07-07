@@ -3,86 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Waifu Scroll Rizz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: linear-gradient(to bottom, #d1b3ff, #ffccf9);
-      font-family: 'Pacifico', cursive;
-      overflow-x: hidden;
-    }
-
-    .section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateX(100px);
-      transition: all 1.2s ease;
-      text-align: center;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .section.left {
-      transform: translateX(-100px);
-    }
-
-    .waifu-img {
-      max-width: 300px;
-      filter: drop-shadow(0 0 20px #ff66cc);
-    }
-
-    .flirt-text {
-      font-size: 2.2rem;
-      color: #ff66cc;
-      margin-top: 15px;
-      opacity: 0;
-      transition: opacity 1s ease 0.4s;
-    }
-
-    .section.visible .flirt-text {
-      opacity: 1;
-    }
-  </style>
+  <title>Hey Cutie </title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="background-overlay"></div>
 
-  <div class="section right">
-    <img src="wuwa.png" class="waifu-img" alt="WuWa Girl" />
-    <div class="flirt-text">Hey, don't look away~</div>
+  <div class="waifu-section">
+    <img src="hu_tao.png" alt="Waifu" class="waifu-img fade-in">
+    <p class="waifu-text">Hey, don't look away~</p>
   </div>
 
-  <div class="section left">
-    <img src="hu_tao.png" class="waifu-img" alt="Hu Tao" />
-    <div class="flirt-text">I see you watching</div>
-  </div>
+  <!-- Decorations -->
+  <img src="heart.png" class="floating heart" alt="heart">
+  <img src="star.png" class="floating star" alt="star">
 
-  <div class="section right">
-    <img src="kirara.png" class="waifu-img" alt="Kirara" />
-    <div class="flirt-text">You're kinda cute ngl</div>
-  </div>
-
-  <script>
-    const sections = document.querySelectorAll('.section');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
