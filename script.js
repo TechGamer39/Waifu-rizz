@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function createStars() {
-    const container = document.getElementById('star-container');
+    const container = document.getElementByID('star-container');
     const starCount = 50;
 
     for (let i = 0; i < starCount; i++) {
