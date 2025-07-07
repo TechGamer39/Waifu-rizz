@@ -17,10 +17,14 @@ body {
 }
 
 .waifu-section {
-  text-align: center;
-  padding-top: 100px;
-  position: relative;
-  z-index: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.waifu-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .waifu-img {
