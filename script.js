@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll('.waifu-section');
+    const sections = document.querySelectorAll('.waifu-section');
 
-  const reveal = () => {
-    const scrollY = window.scrollY + window.innerHeight;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
 
     sections.forEach(section => {
-      const offset = section.offsetTop;
-      if (scrollY > offset + 50) {
-        section.classList.add('visible');
-      }
+        observer.observe(section);
     });
-  };
-
-  window.addEventListener('scroll', reveal);
-  reveal();
 });
