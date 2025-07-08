@@ -53,22 +53,24 @@ waifu-section {
     z-index: -1;
 }
 
-.star {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background-image: url('star.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float-star linear infinite;
+.edge-star {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-image: url('star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: edge-float 3s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 2;
 }
 
-@keyframes float-star {
-    from {
-        transform: translateY(105vh) rotate(0deg);
-    }
-    to {
-        transform: translateY(-5vh) rotate(360deg);
-    }
+@keyframes edge-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
-    }
