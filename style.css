@@ -89,7 +89,7 @@ body {
   animation: edge-float 3s ease-in-out infinite;
   opacity: 0.6;
   pointer-events: none;
-  z-index: 2;
+  z-index: 99;
 }
 
 @keyframes edge-float {
