@@ -4,93 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waifu Scroll Rizz</title>
-    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-    body {
-  background-image: url("bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-    }
 
-    .section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateX(100px);
-      transition: all 1.2s ease;
-      text-align: center;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .section.left {
-      transform: translateX(-100px);
-    }
-
-    .waifu-img {
-      max-width: 300px;
-      filter: drop-shadow(0 0 20px #ff66cc);
-    }
-
-    .flirt-text {
-      font-size: 2.2rem;
-      color: #ff66cc;
-      margin-top: 15px;
-      opacity: 0;
-      transition: opacity 1s ease 0.4s;
-    }
-
-    .section.visible .flirt-text {
-      opacity: 1;
-    }
-</head>
 <body>
 
-  <div class="waifu-section right">
-    <img src="wuwa.png" class="waifu-img" alt="WuWa Girl" />
-    <div class="flirt-text">Hey, cutie</div>
-  </div>
-
-  <div class="waifu-section right">
-    <img src="hu_tao.png" class="waifu-img" alt="Hu Tao" />
-    <div class="flirt-text">why are you so cute</div>
-  </div>
-
-  <div class="waifu-section right">
-    <img src="kirara.png" class="waifu-img" alt="Kirara" />
-    <div class="flirt-text">love you<3</div>
-  </div>
-     
-  <div class="waifu-section right">
-    <img src="kirara.png" class="waifu-img" alt="Kirara" />
-    <div class="flirt-text">I slave your love</div>
-    <img src="heart.png" class="heart" alt="heart" /> 
-  </div>
-      
-   <body>
     <div id="star-container"></div>
-      
-    const sections = document.querySelectorAll('.section');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
+    <div class="background-overlay"></div>
 
-    sections.forEach(section => observer.observe(section));
-</body>
- </script>src="script.js"></script>
+    <div class="waifu-section right">
+        <img src="wuwa.png" class="waifu-img" alt="Wuwa Girl" />
+        <div class="flirt-text">Hey, Cutie</div>
+    </div>
+
+    <div class="waifu-section left">
+        <img src="hu_tao.png" class="waifu-img" alt="Hu Tao" />
+        <div class="flirt-text">Why are you so cute</div>
+    </div>
+    
+    <div class="waifu-section right">
+        <img src="kirara.png" class="waifu-img" alt="Kirara" />
+        <div class="flirt-text">I love you</div>
+        <img src="heart.png" class="heart" alt="Heart" />
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
